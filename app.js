@@ -96,6 +96,14 @@ app.use("/listing", listingRoute);
 //means that the review router (or middleware) will handle all requests
 // that match the route pattern "/listing/:id/reviews".
 app.use("/listing/:id/reviews", reviewRoute);
+
+
+app.get("/", (req, res) => {
+  res.redirect("/listing");
+});
+
+
+
 app.use("/",userRoute);
 
 
