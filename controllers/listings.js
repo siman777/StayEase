@@ -9,8 +9,6 @@ const ExpressError  = require("../utils/ExpressError.js");
 
 module.exports.index = async (req, res) => {
   let allListings = await Listing.find({});
-  if (allListings.length === 0)
-    throw new ExpressError(404, "No Listings Found!");
   res.render("./listings/index.ejs", { allListings });
 };
 
@@ -32,7 +30,6 @@ module.exports.showListing = async (req, res) => {
     req.flash("error", "List doesn't exits");
     res.redirect("/listing");
   }
-  if (!list) throw new ExpressError(404, "Listing Not Found!");
   res.render("./listings/show.ejs", { list });
 };
 
@@ -129,7 +126,6 @@ module.exports.updateListing = async (req, res) => {
     ...req.body.listing,
   });
 
-  if (!updatedListing) throw new ExpressError(404, "Listing Not Found!");
 
   // Update geometry (location coordinates)
   updatedListing.geometry = {
