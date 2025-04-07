@@ -1,5 +1,6 @@
 
 const User = require("../models/user.js");
+const ExpressError  = require("../utils/ExpressError.js");
 
 module.exports.signup = async (req, res) => {
   try {
