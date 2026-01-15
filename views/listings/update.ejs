@@ -4,107 +4,116 @@
     <div class="col-8 offset-2">
       <br />
       <h2>Update Informations</h2>
+
       <form
         method="post"
-        action="/listing/<%=data._id%>?_method=PUT"
+        action="/listing/<%= data._id %>?_method=PUT"
         class="needs-validation"
         novalidate
         enctype="multipart/form-data"
       >
+
+        <!-- Title -->
         <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
+          <label class="form-label">Title</label>
           <input
             name="listing[title]"
-            value="<%=data.title%>"
+            value="<%= data.title %>"
             type="text"
             class="form-control"
             required
           />
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-          <div class="invalid-feedback">
-            Please Enter Title
-          </div>
+          <div class="invalid-feedback">Please Enter Title</div>
         </div>
+
+        <!-- Description -->
         <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea name="listing[description]" class="form-control" required>
-          <%=data.description%></textarea
-          >
-          <div class="invalid-feedback">
-            Please Write Description
-          </div>
+          <label class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            required
+          ><%= data.description %></textarea>
+          <div class="invalid-feedback">Please Write Description</div>
         </div>
+
+        <!-- Original Image -->
         <div class="mb-3">
           <p>Original Image</p>
-          <img src="<%=orignalImageUrl%>" alt="OrignalImage">
+          <img
+            src="<%= originalImageUrl %>"
+            alt="Original Image"
+            class="img-fluid rounded"
+          />
         </div>
+
+        <!-- Upload New Image -->
         <div class="mb-3">
-          <label for="image" class="form-label">Uplaod new Image</label>
+          <label class="form-label">Upload new Image</label>
           <input
-            name="listing[image]"
+            name="image"
             type="file"
             class="form-control"
           />
         </div>
+
+        <!-- Price + Country -->
         <div class="row">
           <div class="mb-3 col-md-4">
-            <label for="price" class="form-label">Price</label>
+            <label class="form-label">Price</label>
             <input
               name="listing[price]"
-              value="<%=data.price%>"
+              value="<%= data.price %>"
               type="number"
               class="form-control"
               required
             />
-            <div class="invalid-feedback">
-                Please Enter valid Price
-            </div>
+            <div class="invalid-feedback">Please Enter valid Price</div>
           </div>
+
           <div class="mb-3 col-md-8">
-            <label for="country" class="form-label">Country</label>
+            <label class="form-label">Country</label>
             <input
               name="listing[country]"
-              value="<%=data.country%>"
+              value="<%= data.country %>"
               type="text"
               class="form-control"
               required
             />
-            <div class="invalid-feedback">
-                Please Enter Country
-            </div>
+            <div class="invalid-feedback">Please Enter Country</div>
           </div>
         </div>
+
+        <!-- Location -->
         <div class="mb-3">
-          <label for="location" class="form-label">Location</label>
+          <label class="form-label">Location</label>
           <input
             name="listing[location]"
-            value="<%=data.location%>"
+            value="<%= data.location %>"
             type="text"
             class="form-control"
             required
           />
-          <div class="invalid-feedback">
-            Please Enter Location
-          </div>
+          <div class="invalid-feedback">Please Enter Location</div>
         </div>
+
+        <!-- Category -->
         <div class="mb-3">
-          <label for="category" class="form-label" >Category</label>
+          <label class="form-label">Category</label>
           <select name="listing[category]" class="form-select" required>
-            <option value="" disabled selected>Select a category</option>
-            <option value="Mountains">Mountains</option>
-            <option value="Trending">Trending</option>
-            <option value="Iconic City">Iconic City</option>
-            <option value="Castle">Castle</option>
-            <option value="Amazing pools">Amazing pools</option>
-            <option value="Camping">Camping</option>
-            <option value="Farms">Farms</option>
-            <option value="Arctics">Arctics</option>
+            <option value="" disabled>Select a category</option>
+            <option value="Mountains" <%= data.category === "Mountains" ? "selected" : "" %>>Mountains</option>
+            <option value="Trending" <%= data.category === "Trending" ? "selected" : "" %>>Trending</option>
+            <option value="Iconic City" <%= data.category === "Iconic City" ? "selected" : "" %>>Iconic City</option>
+            <option value="Castle" <%= data.category === "Castle" ? "selected" : "" %>>Castle</option>
+            <option value="Amazing pools" <%= data.category === "Amazing pools" ? "selected" : "" %>>Amazing pools</option>
+            <option value="Camping" <%= data.category === "Camping" ? "selected" : "" %>>Camping</option>
+            <option value="Farms" <%= data.category === "Farms" ? "selected" : "" %>>Farms</option>
+            <option value="Arctics" <%= data.category === "Arctics" ? "selected" : "" %>>Arctics</option>
           </select>
           <div class="invalid-feedback">Please select a category</div>
         </div>
-        <br />
+
         <button class="btn btn-dark update-btn mt-3">Update</button>
       </form>
       <br />
