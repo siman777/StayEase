@@ -1,6 +1,6 @@
-# 🏠 WanderLust - Airbnb Clone
+# 🏠 StayEase - Airbnb Clone
 
-A feature-rich, full-stack accommodation booking platform inspired by Airbnb. Built with modern web technologies, WanderLust allows users to explore, list, and review properties from around the world.
+A feature-rich, full-stack accommodation booking platform inspired by Airbnb. Built with modern web technologies, StayEase allows users to explore, list, and review properties from around the world.
 
 ![Node.js](https://img.shields.io/badge/Node.js-v22.13.1-green)
 ![Express](https://img.shields.io/badge/Express-4.21.2-blue)
@@ -62,7 +62,7 @@ A feature-rich, full-stack accommodation booking platform inspired by Airbnb. Bu
 ```bash
 # Clone and run locally
 git clone <repository-url>
-cd wanderlust
+cd stayease
 npm install
 npm start
 ```
@@ -125,7 +125,7 @@ Before you begin, ensure you have the following installed and set up:
 ### Step 1: Clone the Repository
 ```bash
 git clone <repository-url>
-cd wanderlust
+cd stayease
 ```
 
 ### Step 2: Install Dependencies
@@ -173,7 +173,7 @@ Create a `.env` file with the following configuration:
 | `CLOUD_NAME` | Cloudinary cloud name | `my-cloud-name` |
 | `CLOUD_API_KEY` | Cloudinary API key | `123456789012345` |
 | `CLOUD_API_SECRET` | Cloudinary API secret | `abcdefghijklmnopqrstuvwxyz` |
-| `ATLASDB_URL` | MongoDB Atlas connection string | `mongodb+srv://user:pass@cluster.mongodb.net/wanderlust` |
+| `ATLASDB_URL` | MongoDB Atlas connection string | `mongodb+srv://user:pass@cluster.mongodb.net/stayease` |
 | `SECRET` | Session secret (use strong random string) | `my-super-secret-key-12345` |
 
 ### Getting Your Credentials
@@ -201,7 +201,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ## 📁 Project Structure
 
 ```
-wanderlust/
+stayease/
 │
 ├── app.js                      # Main application entry point
 ├── package.json                # Project dependencies and scripts
@@ -491,7 +491,7 @@ This project is created for **educational purposes only**. It is not affiliated 
 
 If you encounter any issues or have questions:
 
-- **Open an issue**: [GitHub Issues](https://github.com/yourusername/wanderlust/issues)
+- **Open an issue**: [GitHub Issues](https://github.com/yourusername/stayease/issues)
 - **Email**: your.email@example.com
 - **Documentation**: Check this README and inline code comments
 
