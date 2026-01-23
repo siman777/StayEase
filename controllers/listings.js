@@ -179,18 +179,21 @@ module.exports.filterListing = async (req, res) => {
 };
 
 module.exports.searchListing = async (req, res) => {
-  const name = req.params.category;
+  let query = decodeURIComponent(req.params.category);
+  console.log(query);
 
-  if (name === "All") {
-    return res.redirect("/listing");
-  }
+  // exact match (case-sensitive)
+  const allListings = await Listing.find({
+    title: { $regex: `^${query}$`, $options: "i" }
+  });
 
-  const allListings = await Listing.find({ category: name });
+
 
   if (allListings.length === 0) {
-    req.flash("error", "No Hotels found");
+    req.flash("error", "No hotels found");
     return res.redirect("/listing");
   }
 
-  return res.render("listings/index", { allListings });
+  res.render("listings/index", { allListings });
 };
+
